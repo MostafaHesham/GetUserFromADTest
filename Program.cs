@@ -177,6 +177,11 @@ namespace GetUserFromADTest
                                 user.Photo = Convert.ToBase64String((byte[])myCollection, 0,
                                     ((byte[])myCollection).Length);
                                 break;
+                                 case "memberOf":
+                                    user.memberOf = myCollection.ToString();
+                                    _logger.LogInformation($"memberOf:{JsonConvert.SerializeObject(user.memberOf)}");
+
+                                    break;
                         }
                     }
                 }
@@ -308,6 +313,11 @@ namespace GetUserFromADTest
                                 case "thumbnailPhoto":
                                     user.Photo = Convert.ToBase64String((byte[])myCollection, 0,
                                         ((byte[])myCollection).Length);
+                                    break;
+                                     case "memberOf":
+                                    user.memberOf = myCollection.ToString();
+                                    _logger.LogInformation($"memberOf:{JsonConvert.SerializeObject(user.memberOf)}");
+
                                     break;
                             }
 
